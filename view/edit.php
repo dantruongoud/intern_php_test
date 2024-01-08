@@ -47,15 +47,11 @@
                 $address = $_POST['address'];
                 $zipcode = $_POST['zipcode'];
                 $city = $_POST['city'];
-                $found = true;
                 $msg = "";
 
                 if (empty($name) || empty($phone) || empty($email) || empty($address) || empty($zipcode) || empty($city)) {
                     $msg = "Please enter all fill";
-                    $found = false;
-                }
-                
-                if ($found) {
+                } else {
                     $new_data = array(
                         'nom' => $name,
                         'tel' => $phone,
@@ -83,6 +79,7 @@
                         $msg = "Update Failed..." . error_get_last()['message'];
                     }
                 }
+                
             }
             
         }
