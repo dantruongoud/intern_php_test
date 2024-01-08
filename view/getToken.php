@@ -22,10 +22,10 @@
 
     $response = @file_get_contents($api_url, false, $context);
 
-    if ($response) {
+    if ($response !== false) {
         $response_data = json_decode($response, true);
+        var_dump($response_data);
         $_SESSION['token'] = $response_data['datas']['token'];
-        
     } else {
         echo 'Có lỗi khi thực hiện request.' .  error_get_last()['message'];
     }

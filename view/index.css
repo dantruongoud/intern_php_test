@@ -69,8 +69,8 @@ section {
     padding: 2% 0px;
 }
 
-#search>div>input {
-    background-color: inherit;
+#search>div input {
+    background-color: inherit !important;
 }
 
 .buttons {

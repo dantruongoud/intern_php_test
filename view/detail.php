@@ -13,6 +13,8 @@
         session_start();
         if (isset($_SESSION['token'])) {
             $token = $_SESSION['token'];
+            echo $token;
+            //  20240108-659baf340a849055714007
             $id_member = $_GET['id'];
             $data = [];
 
@@ -22,8 +24,7 @@
             $options = array(
                 'http' => array(
                     'method'  => 'GET',
-                    'header'  => 'Content-type: application/json' . "\r\n" .
-                                'Authorization: Bearer ' . $token,
+                    'header'  => 'Content-type: application/json' . '\r\n' . 'Authorization: Bearer ' . $token,
                 ),
             );
 

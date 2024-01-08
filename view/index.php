@@ -10,9 +10,10 @@
 </head>
 <body>
     <?php
-        session_start();
+        include 'getToken.php';
         if (isset($_SESSION['token'])) {
             $token = $_SESSION['token'];
+            echo $token;
             $data = [];
 
             $api_url = 'https://evaluation-technique.lundimatin.biz/api/clients';
@@ -21,11 +22,11 @@
             $options = array(
                 'http' => array(
                     'method'  => 'GET',
-                    'header'  => 'Content-type: application/json' . "\r\n" .
-                                'Authorization: Bearer ' . $token,
+                    'header'  => 'Content-type: application/json' . '\r\n' . 'Authorization: Bearer ' . $token,
                 ),
             );
 
+            
             $context = stream_context_create($options);
 
             $response = @file_get_contents($api_url, false, $context);
@@ -36,7 +37,6 @@
                 echo 'Có lỗi khi thực hiện request.' .  error_get_last()['message'];
             }
 
-            
         }
 
     ?>
@@ -51,7 +51,7 @@
                 <section>
                     <div class="info">Enter the name to search</div>
                 </section>
-                
+
                 <section id="search">
                     <div class="control">
 
